@@ -1,0 +1,14 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.errorSign": "✖",
+  "diagnostic.infoSign": "⩒",
+  "diagnostic.hintSign": "⊹"
+}
