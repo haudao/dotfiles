@@ -32,11 +32,11 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'jxnblk/vim-mdx-js'
 
 " Misc
+Plug 'psliwka/vim-smoothie'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'Galooshi/vim-import-js'
-
 
 call plug#end()
 
@@ -145,7 +145,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " FZF configs
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 nnoremap <leader>p :Files!<CR>
 nnoremap <leader>b :Buffers!<CR>
 nnoremap <leader>f :Rg!<CR>

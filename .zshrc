@@ -16,7 +16,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $HOME/.secrets
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Improve CLI
 alias cat='bat'
@@ -46,6 +46,8 @@ rbenv() {
   rbenv "$@"
 }
 export SKIP_NPM_BUILD=true
+export SKIP_NPM_BUILD=true
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 alias herostag='hero $@ --context solomon.ehrocks.com'
 alias heroprod='hero $@ --context david.ehrocks.com'
