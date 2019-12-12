@@ -66,9 +66,6 @@ set cursorline
 " Use system clipboard
 set clipboard=unnamed
 
-" Copy path
-nnoremap <leader>cp :let @+=expand('%:p')<CR>
-
 " Theme
 if !exists('g:syntax_on')
   syntax enable
@@ -93,6 +90,9 @@ let mapleader = ','
 " Edit and source configs
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+
+" Copy path
+nnoremap <leader>cp :let @+=expand('%:p')<CR>
 
 " Status line
 let g:lightline = {}
