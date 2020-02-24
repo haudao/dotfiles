@@ -49,10 +49,8 @@ export SKIP_NPM_BUILD=true
 export SKIP_NPM_BUILD=true
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
-alias herostag='hero $@ --context solomon.ehrocks.com'
-alias heroprod='hero $@ --context david.ehrocks.com'
-alias hero2stag='herocli --server hero2.staging.ehrocks.com:443'
-alias hero2prod='herocli --server hero2.ehrocks.com:443'
+alias herostag='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server hero2.staging.ehrocks.com:443'
+alias heroprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server hero2.ehrocks.com:443'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
