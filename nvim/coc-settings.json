@@ -1,11 +1,20 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "eslint.filetypes": [
+  "eslint.autoFixOnSave": true,
+  "eslint.workingDirectories": [
+    "./packages/core",
+    "./packages/documentation",
+    "./packages/playground"
+  ],
+  "eslint.probe": [
     "javascript",
+    "javascriptreact",
     "typescript",
     "typescriptreact",
-    "javascriptreact",
-    "typescript.tsx"
+    "html",
+    "vue",
+    "markdown",
+    "markdown.mdx"
   ],
   "diagnostic.warningSign": "⚠",
   "diagnostic.errorSign": "✖",

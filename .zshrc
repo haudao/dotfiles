@@ -46,7 +46,6 @@ rbenv() {
   rbenv "$@"
 }
 export SKIP_NPM_BUILD=true
-export SKIP_NPM_BUILD=true
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 alias herostag='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server hero2.staging.ehrocks.com:443'
@@ -55,3 +54,4 @@ alias heroprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server hero2
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="./bin:$PATH"

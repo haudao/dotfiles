@@ -96,7 +96,7 @@ nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 let g:nnn#set_default_mappings = 0
 
 " Start nnn in the current file's directory
-nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>"
+nnoremap <silent> <C-\> :NnnPicker %:p:h<CR>"
 
 " Opens the nnn window in a split
 let g:nnn#layout = 'tabnew' 
