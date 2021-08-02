@@ -61,7 +61,7 @@ nvim_lsp.tsserver.setup {
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'markdown' },
   init_options = {
     linters = {
       eslint = {
@@ -80,8 +80,8 @@ nvim_lsp.diagnosticls.setup {
           security = 'severity'
         },
         securities = {
-          [2] = 'error',
-          [1] = 'warning'
+          [1] = 'error',
+          [2] = 'warning'
         }
       },
     },
@@ -95,7 +95,6 @@ nvim_lsp.diagnosticls.setup {
       eslint_d = {
         command = 'eslint_d',
         args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
-        rootPatterns =  { '.eslintrc' },
       },
       prettier = {
         command = 'prettier',
@@ -117,15 +116,10 @@ nvim_lsp.diagnosticls.setup {
   }
 }
 
--- Icon
+-- Hide lsp diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    -- This sets the spacing and the prefix, obviously.
-    virtual_text = {
-      spacing = 4,
-      prefix = ''
-    }
+    virtual_text = false
   }
 )
 EOF
