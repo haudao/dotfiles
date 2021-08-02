@@ -11,8 +11,8 @@ let g:nnn#set_default_mappings = 0
 " Start nnn in the current file's directory
 nnoremap <silent> <C-\> :NnnPicker %:p:h<CR>"
 
-" Opens the nnn window in a split
-let g:nnn#layout = 'tabnew' 
+" Floating window.
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } } 
 
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
