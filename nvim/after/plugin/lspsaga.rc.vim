@@ -7,10 +7,10 @@ lua << EOF
 local saga = require 'lspsaga'
 
 saga.init_lsp_saga {
-  error_sign = '✖',
-  warn_sign = '⚠',
-  hint_sign = '?',
-  infor_sign = '¡',
+  error_sign = '',
+  warn_sign = '',
+  hint_sign = '',
+  infor_sign = '',
   border_style = "round",
 }
 
@@ -34,3 +34,7 @@ nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 " jump to next diagnostic
 nnoremap <silent> [e :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
+
+" code action
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
