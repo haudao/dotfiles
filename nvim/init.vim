@@ -53,7 +53,7 @@ set t_Co=256
 set background=dark
 
 set encoding=utf8
-set guifont=Fura\ Mono\ Regular\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h11
+set guifont=Operator\ Mono\ Light\ Nerd\ Font\ Complete:h11
 
 let base16colorspace=256               " access colors present in 256 colorspace
 colorscheme base16-tomorrow-night

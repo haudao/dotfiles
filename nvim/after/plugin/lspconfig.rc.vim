@@ -45,7 +45,7 @@ local on_attach = function(client, bufnr)
     '', -- Reference
     '', -- Folder
     '', -- EnumMember
-    '', -- Constant
+    '', -- Constant
     '', -- Struct
     '', -- Event
     'ﬦ', -- Operator
@@ -79,10 +79,6 @@ nvim_lsp.diagnosticls.setup {
           message = '[eslint] ${message} [${ruleId}]',
           security = 'severity'
         },
-        securities = {
-          [1] = 'error',
-          [2] = 'warning'
-        }
       },
     },
     filetypes = {
