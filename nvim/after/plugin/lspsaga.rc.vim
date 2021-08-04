@@ -32,8 +32,11 @@ nnoremap <silent>gr :Lspsaga rename<CR>
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 
 " jump to next diagnostic
-nnoremap <silent> [e :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent> ]e :Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent> [e :Lspsaga diagnostic_jump_prev<CR>
+
+" show cursor diagnostic
+nnoremap <silent> sd :Lspsaga show_line_diagnostics<CR>
 
 " code action
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
