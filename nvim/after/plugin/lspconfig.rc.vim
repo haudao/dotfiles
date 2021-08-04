@@ -56,7 +56,7 @@ end
 -- TypeScript
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', "typescript", "typescriptreact" }
+  filetypes = { 'javascript', 'javascriptreact', "typescript", "typescriptreact" },
 }
 
 nvim_lsp.diagnosticls.setup {
@@ -79,6 +79,10 @@ nvim_lsp.diagnosticls.setup {
           message = '[eslint] ${message} [${ruleId}]',
           security = 'severity'
         },
+        securities = {
+          [1] = "error",
+          [2] = "warning"
+        }
       },
     },
     filetypes = {
@@ -108,7 +112,7 @@ nvim_lsp.diagnosticls.setup {
       typescriptreact = 'eslint_d',
       json = 'prettier',
       markdown = 'prettier',
-    }
+    },
   }
 }
 
