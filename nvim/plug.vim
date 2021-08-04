@@ -11,7 +11,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'psliwka/vim-smoothie'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'Galooshi/vim-import-js'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -23,6 +22,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Autocomplete
 Plug 'hrsh7th/nvim-compe'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 
 " Fuzzy finder
 Plug 'nvim-lua/popup.nvim'
