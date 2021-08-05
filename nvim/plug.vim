@@ -32,5 +32,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " Status line
 Plug 'hoob3rt/lualine.nvim'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 

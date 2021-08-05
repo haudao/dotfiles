@@ -20,7 +20,7 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 
 " Copy path
-nnoremap <leader>cp :let @+=expand('%:p')<CR>
+nnoremap <leader>cp :let @+=expand('%')<CR>
 
 " Vim sneak configs
 let g:sneak#label = 1
