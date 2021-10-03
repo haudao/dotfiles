@@ -1,8 +1,3 @@
-if !exists('g:lspconfig')
-  finish
-endif
-
-lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
@@ -59,60 +54,42 @@ nvim_lsp.tsserver.setup {
   filetypes = { 'javascript', 'javascriptreact', "typescript", "typescriptreact" },
 }
 
-nvim_lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'markdown' },
+-- Eslint, Prettier
+local eslint = {
+  lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
+  lintIgnoreExitCode = true,
+  lintStdin = true,
+  lintFormats = { '%f:%l:%c: %m' },
+  formatCommand = 'eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}',
+  formatStdin = true,
+}
+
+local prettier = {
+  formatCommand = 'prettier --stdin-filepath ${INPUT}',
+  formatStdin = true,
+}
+
+nvim_lsp.efm.setup {
   init_options = {
-    linters = {
-      eslint = {
-        command = 'eslint_d',
-        rootPatterns =  { '.eslintrc' },
-        debounce = 100,
-        args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-        sourceName = 'eslint_d',
-        parseJson = {
-          errorsRoot = '[0].messages',
-          line = 'line',
-          column = 'column',
-          endLine = 'endLine',
-          endColumn = 'endColumn',
-          message = '[eslint] ${message} [${ruleId}]',
-          security = 'severity'
-        },
-        securities = {
-          [1] = "error",
-          [2] = "warning"
-        }
+    documentFormatting = true,
+  },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'markdown', 'markdownreact', 'yaml' },
+  settings = {
+    rootMarkers = { ".git/" },
+    languages = {
+      lua = {
+        { formatCommand = "lua-format -i", formatStdin = true }
       },
-    },
-    filetypes = {
-      javascript = 'eslint',
-      javascriptreact = 'eslint',
-      typescript = 'eslint',
-      typescriptreact = 'eslint',
-    },
-    formatters = {
-      eslint_d = {
-        command = 'eslint_d',
-        args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
-      },
-      prettier = {
-        command = 'prettier',
-        args = { '--stdin-filepath', '%filename' }
-      }
-    },
-    formatFiletypes = {
-      css = 'prettier',
-      javascript = 'eslint_d',
-      javascriptreact = 'eslint_d',
-      json = 'prettier',
-      scss = 'prettier',
-      less = 'prettier',
-      typescript = 'eslint_d',
-      typescriptreact = 'eslint_d',
-      json = 'prettier',
-      markdown = 'prettier',
-    },
+      css = { prettier },
+      html = { prettier },
+      javascript = { prettier, eslint },
+      javascriptreact = { prettier, eslint },
+      json = { prettier },
+      markdown = { prettier },
+      typescript = { prettier, eslint },
+      typescriptreact = { prettier, eslint },
+      yaml = { prettier },
+    }
   }
 }
 
@@ -122,4 +99,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     virtual_text = false
   }
 )
-EOF
