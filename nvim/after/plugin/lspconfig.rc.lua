@@ -73,9 +73,8 @@ nvim_lsp.efm.setup {
   init_options = {
     documentFormatting = true,
   },
-  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'markdown', 'markdownreact', 'yaml' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'markdown', 'yaml' },
   settings = {
-    rootMarkers = { ".git/" },
     languages = {
       lua = {
         { formatCommand = "lua-format -i", formatStdin = true }

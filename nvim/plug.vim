@@ -18,6 +18,7 @@ Plug 'glepnir/lspsaga.nvim'
 
 " Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'jxnblk/vim-mdx-js'
 
 " Autocomplete
 Plug 'hrsh7th/nvim-compe'
