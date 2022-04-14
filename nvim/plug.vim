@@ -14,10 +14,11 @@ Plug 'tpope/vim-surround'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'tami5/lspsaga.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'jxnblk/vim-mdx-js'
 
 " Autocomplete
@@ -29,6 +30,7 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Status line
 Plug 'hoob3rt/lualine.nvim'

@@ -55,3 +55,9 @@ alias heroprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server hero2
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="./bin:$PATH"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
