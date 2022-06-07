@@ -1,7 +1,6 @@
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
 local null_ls = require('null-ls')
-local u = require("null-ls.utils")
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -13,10 +12,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
   -- Formatting on save
+  client.resolved_capabilities.document_formatting = true
+  client.resolved_capabilities.document_range_formatting = true
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> EslintFixAll]]
     vim.api.nvim_command [[augroup END]]
   end
 
@@ -57,20 +58,15 @@ nvim_lsp.tsserver.setup {
     client.resolved_capabilities.document_range_formatting = false
     on_attach(client, bufnr)
   end,
-  filetypes = { 'javascript', 'javascriptreact', "typescript", "typescriptreact" },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
 }
 
 -- Formatting config
-null_ls.setup({
+local filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'markdown', 'markdown.mdx' }
+nvim_lsp.eslint.setup {
   on_attach = on_attach,
-  root_dir = u.root_pattern("package.json"),
-  sources = {
-    null_ls.builtins.code_actions.eslint,
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.eslint,
-    null_ls.builtins.formatting.prettierd,
-  }
-})
+  filetypes = filetypes
+}
 
 -- Hide lsp diagnostics
 vim.diagnostic.config {
